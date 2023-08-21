@@ -23,10 +23,9 @@ function App() {
       if (task.id === id) {
         task.status = "yapıldı";
       }
+      return console.log("tamamlama fonksiyonunu buraya yazın");
     });
     handleTaskSubmit(newTaskArray);
-
-    console.log("tamamlama fonksiyonunu buraya yazın");
   }
 
   return (

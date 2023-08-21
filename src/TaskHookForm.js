@@ -2,8 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { nanoid } from "nanoid";
 
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function TaskHookForm({ kisiler, submitFn }) {
   const {
@@ -17,6 +17,7 @@ export default function TaskHookForm({ kisiler, submitFn }) {
   const onSubmit = (data) => {
     submitFn({ ...data, id: nanoid(5), status: "yapılacak" });
   };
+  const notify = () => toast("Yeni görevinde başarılar dilerim!");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="taskForm">
@@ -86,9 +87,15 @@ export default function TaskHookForm({ kisiler, submitFn }) {
       </div>
 
       <div className="form-line">
-        <button className="submit-button" type="submit" disabled={!isValid}>
+        <button
+          className="submit-button"
+          type="submit"
+          disabled={!isValid}
+          onClick={notify}
+        >
           Kaydet
         </button>
+        <ToastContainer />
       </div>
     </form>
   );
