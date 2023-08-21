@@ -19,6 +19,13 @@ function App() {
   }
 
   function handleComplete(id) {
+    const newTaskArray = tasks.map((task) => {
+      if (task.id === id) {
+        task.status = "yapıldı";
+      }
+    });
+    handleTaskSubmit(newTaskArray);
+
     console.log("tamamlama fonksiyonunu buraya yazın");
   }
 
